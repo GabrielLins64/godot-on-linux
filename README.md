@@ -1,5 +1,5 @@
 <center>
-  <img src="Assets/icon.svg"/>
+  <img src="Step by Step/Assets/icon.svg"/>
   <h1>Godot Engine on Linux</h1>
 </center>
 

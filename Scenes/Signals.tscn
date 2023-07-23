@@ -1,0 +1,43 @@
+[gd_scene load_steps=4 format=3 uid="uid://0qljl68k1d0v"]
+
+[ext_resource type="Texture2D" uid="uid://chuw1blftbjhs" path="res://Assets/icon.svg" id="1_fgxw4"]
+[ext_resource type="Script" path="res://Scripts/Sprite2DToggleAnim.cs" id="2_mntso"]
+[ext_resource type="Script" path="res://Scripts/AttackButton.cs" id="3_bxt2k"]
+
+[node name="Signals" type="Node2D"]
+position = Vector2(-1, 0)
+
+[node name="Button" type="Button" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 496.0
+offset_top = 486.0
+offset_right = 667.0
+offset_bottom = 543.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+text = "Toggle Motion"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(576, 324)
+texture = ExtResource("1_fgxw4")
+script = ExtResource("2_mntso")
+
+[node name="MyTimer" type="Timer" parent="Sprite2D"]
+autostart = true
+
+[node name="AttackButton" type="Button" parent="."]
+offset_left = 496.0
+offset_top = 558.0
+offset_right = 667.0
+offset_bottom = 615.0
+text = "Attack"
+script = ExtResource("3_bxt2k")
+
+[connection signal="pressed" from="Button" to="Sprite2D" method="OnButtonPressed"]
+[connection signal="HealthDepleted" from="Sprite2D" to="AttackButton" method="OnSprite2DHealthDepleted"]
+[connection signal="pressed" from="AttackButton" to="Sprite2D" method="OnAttackButtonPressed"]

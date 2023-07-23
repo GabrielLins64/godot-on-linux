@@ -36,6 +36,8 @@ Godot Engine is an open source project developed by a community of volunteers.
 
 - [C# Tools for Godot](https://marketplace.visualstudio.com/items?itemName=neikeq.godot-csharp-vscode)
 
+- [Godot Files](https://marketplace.visualstudio.com/items?itemName=alfish.godot-files) (Optional: userful for godot files syntax coloring)
+
 5. Install Mono (open source implementation of Microsoft's .NET Framework) from [here](https://www.mono-project.com/download/stable/#download-lin).
 
 *If you got the following error after installing mono: "*N: Skipping acquire of configured file 'main/binary-i386/Packages' as repository 'https://download.mono-project.com/repo/ubuntu stable-focal InRelease' doesn't support architecture 'i386'*", simply edit the mono sources list file:

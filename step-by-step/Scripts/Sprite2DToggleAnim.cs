@@ -12,7 +12,7 @@ namespace MyGame
     public delegate void HealthDepletedEventHandler();
 
     private int _health = 6;
-    private float _angularSpeed = Mathf.Pi;
+    private readonly float _angularSpeed = Mathf.Pi;
     private bool scaled = false;
 
     public override void _Ready()

@@ -11,20 +11,23 @@ namespace MyGame
 
     private int _score;
 
-    public override void _Ready()
-    {
-      NewGame();
-    }
+    public override void _Ready() { }
 
     public void GameOver()
     {
       GetNode<Timer>("MobTimer").Stop();
       GetNode<Timer>("ScoreTimer").Stop();
+      GetNode<HUD>("HUD").ShowGameOver();
+      GetTree().CallGroup("mobs", Node.MethodName.QueueFree);
     }
 
     public void NewGame()
     {
       _score = 0;
+
+      var hud = GetNode<HUD>("HUD");
+      hud.UpdateScore(_score);
+      hud.ShowMessage("Get Ready!");
 
       var player = GetNode<Player>("Player");
       var startPosition = GetNode<Marker2D>("StartPosition");
@@ -36,6 +39,7 @@ namespace MyGame
     private void OnScoreTimerTimeout()
     {
       _score++;
+      GetNode<HUD>("HUD").UpdateScore(_score);
     }
 
     private void OnStartTimerTimeout()

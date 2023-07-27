@@ -15,10 +15,12 @@ namespace MyGame
 
     public void GameOver()
     {
+      GetNode<AudioStreamPlayer>("DeathSound").Play();
       GetNode<Timer>("MobTimer").Stop();
       GetNode<Timer>("ScoreTimer").Stop();
       GetNode<HUD>("HUD").ShowGameOver();
       GetTree().CallGroup("mobs", Node.MethodName.QueueFree);
+      GetNode<AudioStreamPlayer>("Music").Stop();
     }
 
     public void NewGame()
@@ -34,6 +36,7 @@ namespace MyGame
       player.Start(startPosition.Position);
 
       GetNode<Timer>("StartTimer").Start();
+      GetNode<AudioStreamPlayer>("Music").Play();
     }
 
     private void OnScoreTimerTimeout()

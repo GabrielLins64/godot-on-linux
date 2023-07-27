@@ -1,7 +1,35 @@
-[gd_scene load_steps=3 format=3 uid="uid://db8ove2pkk6i8"]
+[gd_scene load_steps=9 format=3 uid="uid://db8ove2pkk6i8"]
 
 [ext_resource type="FontFile" uid="uid://clx6mhd3qs8xd" path="res://Assets/fonts/Xolonium-Regular.ttf" id="1_egtvm"]
 [ext_resource type="Script" path="res://Scripts/HUD.cs" id="1_qq41r"]
+[ext_resource type="StyleBox" uid="uid://dpmwa4g1lns3l" path="res://Assets/tres/StyleStartButton.tres" id="3_sflhp"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i1hh3"]
+bg_color = Color(0.784314, 0.784314, 0.784314, 0.207843)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vsa7v"]
+bg_color = Color(0.784314, 0.784314, 0.784314, 0.184314)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fqp6n"]
+bg_color = Color(0.784314, 0.784314, 0.784314, 0.137255)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="InputEventAction" id="InputEventAction_poty1"]
+action = &"start_game"
+
+[sub_resource type="Shortcut" id="Shortcut_qjn6p"]
+events = [SubResource("InputEventAction_poty1")]
 
 [node name="HUD" type="CanvasLayer"]
 script = ExtResource("1_qq41r")
@@ -15,6 +43,7 @@ offset_right = 22.5
 offset_bottom = 81.0
 grow_horizontal = 2
 size_flags_horizontal = 4
+theme_override_colors/font_color = Color(1, 1, 0, 1)
 theme_override_fonts/font = ExtResource("1_egtvm")
 theme_override_font_sizes/font_size = 64
 text = "0"
@@ -28,6 +57,7 @@ offset_top = -81.0
 offset_bottom = 81.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 0, 1)
 theme_override_fonts/font = ExtResource("1_egtvm")
 theme_override_font_sizes/font_size = 64
 text = "Dodge the creeps"
@@ -41,14 +71,24 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -88.5
+offset_left = -100.0
 offset_top = -140.0
-offset_right = 111.5
+offset_right = 100.0
 offset_bottom = -40.0
 grow_horizontal = 2
 grow_vertical = 0
+theme_override_colors/font_color = Color(1, 1, 0, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 0.419608, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 0.14902, 1)
+theme_override_colors/font_focus_color = Color(1, 1, 0.419608, 1)
+theme_override_colors/font_hover_pressed_color = Color(1, 1, 0.14902, 1)
 theme_override_fonts/font = ExtResource("1_egtvm")
 theme_override_font_sizes/font_size = 64
+theme_override_styles/normal = ExtResource("3_sflhp")
+theme_override_styles/hover = SubResource("StyleBoxFlat_i1hh3")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_vsa7v")
+theme_override_styles/focus = SubResource("StyleBoxFlat_fqp6n")
+shortcut = SubResource("Shortcut_qjn6p")
 text = "Start"
 
 [node name="MessageTimer" type="Timer" parent="."]
